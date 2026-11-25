@@ -1,1 +1,442 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #1e293b;
+  background-color: #f8fafc;
+  line-height: 1.6;
+}
+
+:root {
+  --cor-primaria: #0f172a;
+  --cor-destaque: #2563eb;
+  --cor-secundaria: #38bdf8;
+  --cor-fundo-card: #ffffff;
+  --cor-borda: #cbd5e1;
+}
+
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: var(--cor-primaria);
+  margin-bottom: 16px;
+}
+
+.subtitulo-secao {
+  font-size: 1.5rem;
+  color: var(--cor-primaria);
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* =========================================
+   TAREFA 2.3: Menu Superior Fixo (Sticky)
+   ========================================= */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+header nav a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+header nav a:hover {
+  color: var(--cor-secundaria);
+  opacity: 0.85;
+}
+
+/* =========================================
+   TAREFA 2.3 e 2.5: Hero, Gradiente e Scroll Snap
+   ========================================= */
+.hero {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.hero h1 {
+  font-size: 2.6rem;
+  color: var(--cor-primaria);
+  margin-bottom: 15px;
+}
+
+.hero p {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.15rem;
+  color: #475569;
+}
+
+.btn-cta {
+  display: inline-block;
+  margin-top: 25px;
+  padding: 14px 32px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-cta:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+}
+
+.galeria-hero {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  margin-top: 45px;
+  padding-bottom: 15px;
+}
+
+.galeria-hero figure {
+  min-width: 320px;
+  flex: 1;
+  scroll-snap-align: start;
+  background-color: var(--cor-fundo-card);
+  padding: 15px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.galeria-hero figcaption {
+  margin-top: 10px;
+  font-weight: 600;
+  color: var(--cor-primaria);
+}
+
+/* =========================================
+   TAREFA 2.2 e 2.5: Cards e Microinterações
+   ========================================= */
+.grade-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+  margin-top: 25px;
+}
+
+article {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+article:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.12);
+}
+
+.card-equipe {
+  text-align: center;
+}
+
+.card-equipe img {
+  border-radius: 50%;
+  margin-bottom: 12px;
+}
+
+/* =========================================
+   TAREFA 2.3: Badges Sobrepostas no Blog
+   ========================================= */
+.barra-pesquisa {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.barra-pesquisa input[type="search"] {
+  max-width: 350px;
+  padding: 10px 14px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+}
+
+.categorias-blog {
+  display: flex;
+  gap: 10px;
+}
+
+.categorias-blog a {
+  padding: 6px 14px;
+  background-color: #e2e8f0;
+  color: var(--cor-primaria);
+  text-decoration: none;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.categorias-blog a:hover {
+  background-color: var(--cor-destaque);
+  color: #ffffff;
+}
+
+.blog-img-container {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.badge-categoria {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background-color: var(--cor-destaque);
+  color: #ffffff;
+  padding: 4px 12px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 20px;
+}
+
+.autor {
+  font-size: 0.9rem;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+/* =========================================
+   TAREFA 2.4: Tabela Comparativa Zebrada
+   ========================================= */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 40px;
+  background-color: var(--cor-fundo-card);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+caption {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 12px;
+  color: var(--cor-primaria);
+}
+
+th, td {
+  border: 1px solid var(--cor-borda);
+  padding: 12px 16px;
+  text-align: left;
+}
+
+thead, tfoot {
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f1f5f9;
+}
+
+tbody tr:hover {
+  background-color: #e0f2fe;
+}
+
+/* =========================================
+   TAREFA 2.4: Formulário e Pseudo-classe :focus
+   ========================================= */
+.contato-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+  margin-top: 20px;
+}
+
+fieldset {
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 25px;
+  background-color: var(--cor-fundo-card);
+}
+
+legend {
+  font-weight: bold;
+  padding: 0 10px;
+  color: var(--cor-primaria);
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-top: 12px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 6px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, outline 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--cor-destaque);
+  outline: 3px solid rgba(37, 99, 235, 0.25);
+}
+
+.checkbox-grupo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.checkbox-grupo label {
+  margin-top: 0;
+  font-weight: normal;
+}
+
+button[type="submit"] {
+  margin-top: 20px;
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  color: #ffffff;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+button[type="submit"]:hover {
+  transform: scale(1.03);
+  opacity: 0.92;
+}
+
+aside {
+  background-color: var(--cor-fundo-card);
+  border: 1px solid var(--cor-borda);
+  border-radius: 12px;
+  padding: 25px;
+}
+
+address {
+  font-style: normal;
+  margin: 15px 0 20px 0;
+}
+
+.mapa-container iframe {
+  width: 100%;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+}
+
+/* =========================================
+   TAREFA 2.4: Estilização de SVG via CSS
+   ========================================= */
+svg {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+svg:hover {
+  transform: scale(1.15);
+  opacity: 0.85;
+}
+
+/* =========================================
+   Rodapé
+   ========================================= */
+footer {
+  background-color: var(--cor-primaria);
+  color: #ffffff;
+  text-align: center;
+  padding: 40px 20px;
+  margin-top: 60px;
+}
+
+.links-rodape {
+  margin: 12px 0;
+}
+
+.redes-sociais {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin: 15px 0;
+}
+
+footer a {
+  color: var(--cor-secundaria);
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.voltar-topo {
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: bold;
+}
